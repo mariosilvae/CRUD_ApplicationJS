@@ -45,3 +45,14 @@ function showItems() {
   });
 }
 showItems();
+
+//Create
+function addItem(item) {
+  const newItem = {
+    id: randomID(),
+    text: item
+  }
+  items.unshift(newItem);
+  input.value = '';
+  showItems();
+}
