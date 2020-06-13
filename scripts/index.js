@@ -83,3 +83,24 @@ function updateItem(item) {
   addBtn.innerText = 'Add';
   showItems();
 }
+
+//Submit form
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if(formStatus === 'add' && input.value !== '') {
+    addItem(input.value);
+  }
+  if(formStatus === 'update' && input.value !== '') {
+    updateItem({ id: input.id, text: input.value });
+  }
+});
+
+//Delete
+window.addEventListener('click', e => {
+  if(e.target.classList.contains('delBtn')) {
+    const item = e.target.parentNode.parentNode;
+    const id = item.id;
+    items = items.filter(itemObj => Number(itemObj.id) !== Number(id));
+    showItems();
+  }
+});
