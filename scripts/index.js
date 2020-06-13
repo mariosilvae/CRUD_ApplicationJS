@@ -36,3 +36,12 @@ const generateItem = (item) => {
   div.appendChild(div2);
   return div;
 }
+
+//Read
+function showItems() {
+  list.innerHTML = '';
+  items.forEach(item => {
+    list.appendChild(generateItem(item));
+  });
+}
+showItems();
