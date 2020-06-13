@@ -56,3 +56,30 @@ function addItem(item) {
   input.value = '';
   showItems();
 }
+
+//Update Form when 'Edit' is clicked
+window.addEventListener('click', e => {
+  if(e.target.classList.contains('editBtn')) {
+    const item = e.target.parentNode;
+    const id = item.id;
+    const text = item.firstChild.innerText;
+    input.value = text;
+    input.id = id;
+    formStatus = 'update';
+    addBtn.innerText = 'Update';
+  }
+});
+
+//Update Item
+function updateItem(item) {
+  items.forEach(itemObj => {
+    if(Number(itemObj.id) === Number(item.id)) {
+      itemObj.text = text.text;
+    }
+  });
+  //Reset form
+  input.valuen = '';
+  formStatus = 'add';
+  addBtn.innerText = 'Add';
+  showItems();
+}
