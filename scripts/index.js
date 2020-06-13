@@ -60,7 +60,7 @@ function addItem(item) {
 //Update Form when 'Edit' is clicked
 window.addEventListener('click', e => {
   if(e.target.classList.contains('editBtn')) {
-    const item = e.target.parentNode;
+    const item = e.target.parentNode.parentNode;
     const id = item.id;
     const text = item.firstChild.innerText;
     input.value = text;
@@ -74,7 +74,7 @@ window.addEventListener('click', e => {
 function updateItem(item) {
   items.forEach(itemObj => {
     if(Number(itemObj.id) === Number(item.id)) {
-      itemObj.text = text.text;
+      itemObj.text = item.text;
     }
   });
   //Reset form
